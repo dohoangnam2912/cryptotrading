@@ -80,14 +80,14 @@ class CryptoDataPipeline:
             # print(f"Successfully fetched {symbol} data. Saved to {self.save_dir}/{symbol.replace("/","_")}_ohlcv.csv")
             print(f"Finishing download and loaded {symbol} data.")
     
-    # Function to fetch OHCLV data for a specific symbol
-    def fetch_ohlcv(self, symbol):
-        exchange = ccxt.binance()
-        bars = exchange.fetch_ohlcv(symbol, timeframe="1h", limit=self.limit)
-        df = pd.DataFrame(bars, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
-        df.to_csv(f'{self.save_dir}/{symbol.replace("/","_")}_ohlcv.csv', index=False)
-        print(f"Successfully fetched {symbol} data. Saved to {self.save_dir}/{symbol.replace("/","_")}_ohlcv.csv")
-        return df
+    # # Function to fetch OHCLV data for a specific symbol
+    # def fetch_ohlcv(self, symbol):
+    #     exchange = ccxt.binance()
+    #     bars = exchange.fetch_ohlcv(symbol, timeframe="1h", limit=self.limit)
+    #     df = pd.DataFrame(bars, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
+    #     df.to_csv(f'{self.save_dir}/{symbol.replace("/","_")}_ohlcv.csv', index=False)
+    #     print(f"Successfully fetched {symbol} data. Saved to {self.save_dir}/{symbol.replace("/","_")}_ohlcv.csv")
+    #     return df
 
     # Method to fetch data for all symbols in parallel
     def fetch_all_data(self):
